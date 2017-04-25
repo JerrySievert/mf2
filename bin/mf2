@@ -24,6 +24,9 @@ request(arg, function (err, resp, body) {
       console.log("ERROR: ", err);
       process.exit(1);
     }
+    
+    data = JSON.stringify(data).replace(/\\n/g,"\\\\n")
+    data = JSON.parse(data)
 
     console.log(pretty(data));
   });
