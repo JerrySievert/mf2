@@ -1,0 +1,29 @@
+{
+  "name": "mf2",
+  "version": "1.0.0",
+  "description": "Microformat 2 Command-line Parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "microformats",
+    "parser"
+  ],
+  "preferGlobal": true,
+  "bin": {
+    "mf2": "./bin/mf2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JerrySievert/mf2.git"
+  },
+  "author": "Jerry Sievert <code@legitimatesounding.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "json-nice": "^1.1.0",
+    "microformat-node": "^2.0.1",
+    "request": "^2.81.0"
+  }
+}

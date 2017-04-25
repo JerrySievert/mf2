@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var request = require('request');
+var cheerio = require('cheerio');
+var parser = require('microformat-node');
+var pretty = require('json-nice');
+
+var arg = process.argv[2];
+
+if (arg === undefined) {
+  console.log("USAGE: " + process.argv[1] + " URL");
+  process.exit(0);
+}
+
+request(arg, function (err, resp, body) {
+  if (err) {
+    console.log("ERROR: ", err);
+    process.exit(1);
+  }
+
+  var $ = cheerio.load(body);
+  parser.get({ node: $ }, function (err, data) {
+    if (err) {
+      console.log("ERROR: ", err);
+      process.exit(1);
+    }
+
+    console.log(pretty(data));
+  });
+});
